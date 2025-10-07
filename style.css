@@ -1,0 +1,575 @@
+/* firehot_1.css - ENHANCED STYLES */
+
+/* Define Color Variables for consistency */
+:root {
+    --color-primary: #4f46e5; /* Indigo */
+    --color-primary-hover: #4338ca;
+    --color-secondary: #10b981; /* Emerald/Green for positive */
+    --color-danger: #ef4444; /* Red for negative/delete */
+    --color-text-dark: #1f2937;
+    --color-text-muted: #6b7280;
+    --color-bg-light: #f4f4f5; /* Subtle light background */
+    --color-border: #e5e7eb;
+}
+
+/* --------------------
+   Global Styles
+-------------------- */
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--color-bg-light); 
+    color: var(--color-text-dark);
+}
+
+h1, h2 {
+    color: var(--color-text-dark);
+}
+
+/* --------------------
+   Auth Page
+-------------------- */
+.container {
+    background-color: white;
+    padding: 3rem; 
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Stronger shadow */
+    width: 90%;
+    max-width: 450px; 
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+}
+
+.tab-btn.active {
+    color: var(--color-primary);
+}
+
+.tab-btn.active::after {
+    background-color: var(--color-primary);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Form Elements */
+input, .form-select, .form-textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* Buttons (General) */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Primary Button */
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+}
+
+/* Danger Button */
+.btn-danger {
+    background-color: var(--color-danger);
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c52f2f;
+}
+
+/* Outline Button */
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-dark);
+}
+
+.btn-outline:hover {
+    background-color: #f3f4f6;
+    border-color: #d1d5db;
+}
+
+/* Small Button */
+.btn-small {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Full Width Button */
+.btn-full {
+    width: 100%;
+}
+
+button[type="submit"] {
+    /* Override global submit button style with .btn-primary */
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--color-primary-hover);
+}
+
+/* --------------------
+   Main App Layout
+-------------------- */
+#main-app {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    padding: 0;
+    background-color: var(--color-bg-light); 
+}
+
+.sidebar {
+    width: 280px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.5rem 1.5rem;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.03); 
+    border-radius: 0; 
+    margin: 0;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 3rem; 
+    overflow-y: auto;
+}
+
+#content-area {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+}
+
+.sidebar-header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.sidebar-header h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.sidebar-header p {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+/* --------------------
+   Navigation Items (FIXED ALIGNMENT)
+-------------------- */
+.nav-item {
+    /* 🌟 FIX: Apply Flexbox for consistent alignment */
+    display: flex;
+    align-items: center; /* Vertical centering */
+    width: 100%; /* Ensure full width for padding consistency */
+
+    /* Existing styles from the old .sidebar-nav a, .sidebar-logout a */
+    color: var(--color-text-dark);
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    text-decoration: none; /* Ensure it's treated as a link */
+    transition: background-color 0.15s, color 0.15s; /* Keep transitions for smoothness */
+}
+
+/* 🌟 FIX: Style the Icon within the nav item for alignment */
+.nav-item i {
+    width: 25px; /* Give the icon a fixed space */
+    margin-right: 15px; /* Space between icon and text */
+    text-align: center;
+    font-size: 1.1rem; /* Adjust icon size slightly if needed */
+}
+
+.nav-item:hover {
+    background-color: #f3f4f6; 
+}
+
+.nav-item.active {
+    background-color: #eef2ff; 
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* --------------------
+   Logout Button (Adjusted for .nav-item consistency)
+-------------------- */
+.sidebar-logout {
+    margin-top: auto;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.sidebar-logout .nav-item { /* Use .nav-item selector */
+    color: var(--color-danger);
+    font-weight: 600;
+}
+
+.sidebar-logout .nav-item:hover { /* Use .nav-item selector */
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+/* --------------------
+   Dashboard/Stats/Cards
+-------------------- */
+.stat-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); 
+    border: 1px solid var(--color-border); 
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+}
+
+.stat-positive {
+    color: var(--color-secondary);
+}
+
+.stat-negative {
+    color: var(--color-danger);
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--color-border);
+    margin-top: 1.5rem;
+}
+
+.card-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+/* --------------------
+   Transactions/Goals Items
+-------------------- */
+.transaction-item, .goal-card {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.goal-card {
+    display: block;
+    padding: 1.5rem;
+}
+
+.transaction-item:hover, .goal-card:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.transaction-info {
+    flex-grow: 1;
+}
+
+.transaction-category {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.transaction-description {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    margin-left: 3rem; 
+}
+
+.transaction-date {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin-left: 3rem;
+}
+
+.transaction-amount {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-left: 1rem;
+}
+
+
+/* Badges (used for type/status) */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    border-radius: 9999px; 
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.badge-secondary {
+    background-color: #f3f4f6;
+    color: #4b5563;
+}
+
+.badge-danger {
+    background-color: #fef2f2;
+    color: var(--color-danger);
+}
+
+
+/* Goal Specific Styles */
+.goal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.goal-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.goal-category {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.goal-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.goal-progress {
+    margin-bottom: 1.5rem;
+    padding: 0.75rem;
+    background-color: #f7f7f9;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+}
+
+.goal-progress-text, .goal-progress-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.goal-progress-text {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.goal-progress-details {
+    color: var(--color-text-muted);
+    margin-top: 0.25rem;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: var(--color-border);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--color-primary);
+    transition: width 0.5s ease-in-out;
+}
+
+.goal-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    padding: 1rem 0;
+    border-top: 1px dashed var(--color-border);
+    border-bottom: 1px dashed var(--color-border);
+    font-size: 0.9rem;
+}
+
+.goal-stat-label {
+    font-weight: 500;
+    color: var(--color-text-muted);
+    margin-bottom: 0.25rem;
+}
+
+/* Tabs for Transactions Page */
+.tabs-list {
+    display: flex;
+    border-bottom: 2px solid var(--color-border);
+    margin-bottom: 1rem;
+}
+
+.tabs-trigger {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    position: relative;
+    transition: color 0.2s;
+}
+
+.tabs-trigger.active {
+    color: var(--color-primary);
+}
+
+.tabs-trigger.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+}
+
+.tabs-content {
+    display: none;
+}
+
+.tabs-content.active {
+    display: block;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+    color: var(--color-text-dark);
+}
+
+/* Utility classes used in JS */
+.flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.items-center { align-items: center; }
+.gap-2 { gap: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mt-4 { margin-top: 1rem; }
+.p-4 { padding: 1rem; }
+.w-1\/2 { width: 50%; }
+.space-y-4 > * + * { margin-top: 1rem; }
+.rounded-lg { border-radius: 8px; }
+.shadow-md { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+.text-center { text-align: center; }
+.border-b { border-bottom: 1px solid var(--color-border); }
+.pb-2 { padding-bottom: 0.5rem; }
+.text-xl { font-size: 1.25rem; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.text-gray-600 { color: var(--color-text-muted); }
+.text-green-600 { color: var(--color-secondary); }
+.text-red-600 { color: var(--color-danger); }
+.text-sm { font-size: 0.875rem; }
+.grid { display: grid; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+
+/* Media Queries for Responsive Grid */
+@media (min-width: 768px) {
+    .md\:grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .md\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
