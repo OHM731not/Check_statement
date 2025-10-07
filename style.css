@@ -581,114 +581,117 @@ button[type="submit"]:hover {
 /* --------------------
    Responsive Mobile Styles (Max-width: 768px)
 -------------------- */
-@media (max-width: 768px) {
-    /* 1. Global / Auth Page Adjustments */
-    body {
-        /* Remove fixed height to allow scrolling on small screens */
-        height: auto; 
-        min-height: 100vh; /* Ensure it takes at least the full viewport height */
-        padding: 1.5rem 0; /* Add vertical padding for auth page */
-        align-items: flex-start; /* Start content at the top */
-    }
 
-    .container {
-        padding: 2rem;
-        width: 95%; /* Use almost full width */
-        max-width: 100%;
-        margin: 0 auto;
-    }
+/* --------------------
+   Responsive Styles
+-------------------- */
 
-    /* 2. Main App Layout Transformation */
-    #main-app {
-        flex-direction: column; /* Stacks sidebar and main content vertically */
-        height: auto;
-        min-height: 100vh;
-        width: 100%;
-        max-width: 100%;
-    }
-
-    /* 3. Sidebar to Top Bar / Smaller Size */
+/* Tablet and below (<= 1024px) */
+@media (max-width: 1024px) {
     .sidebar {
-        width: 100%; /* Full width */
-        padding: 1.5rem 1rem 0.5rem 1rem; /* Reduced padding */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Shadow at the bottom */
+        width: 220px;
+        padding: 2rem 1rem;
+    }
+
+    .main-content {
+        padding: 2rem;
+    }
+
+    #content-area {
+        padding: 2rem;
+    }
+
+    .goal-stats {
+        grid-template-columns: 1fr; /* Stack columns */
+    }
+}
+
+/* Mobile (<= 768px) */
+@media (max-width: 768px) {
+    #main-app {
+        flex-direction: column; /* Sidebar on top, content below */
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
         border-bottom: 1px solid var(--color-border);
     }
 
     .sidebar-header {
-        margin-bottom: 1rem;
-        padding-bottom: 0.75rem;
-    }
-    
-    .sidebar-header h2 {
-        font-size: 1.4rem;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border: none;
     }
 
-    .sidebar-nav {
-        /* Enable horizontal scrolling for nav items if too many */
-        display: flex;
-        overflow-x: auto;
-        padding-bottom: 0.5rem;
+    .sidebar-header h2 {
+        font-size: 1.2rem;
     }
 
     .nav-item {
-        /* Allow nav items to shrink, but keep some minimal size */
-        flex-shrink: 0; 
-        padding: 0.6rem 1rem; /* Smaller padding for tighter fit */
+        flex: 1;
+        justify-content: center;
         margin-bottom: 0;
-        margin-right: 0.5rem;
+        padding: 0.75rem;
         font-size: 0.9rem;
-        text-align: center;
-        flex-direction: column; /* Stack icon and text */
-        align-items: center;
     }
 
     .nav-item i {
-        margin-right: 0;
-        margin-bottom: 5px; /* Space between icon and text */
-        width: auto;
+        margin-right: 8px;
         font-size: 1rem;
     }
 
     .sidebar-logout {
-        display: none; /* Hide logout button for simplicity on mobile, or move to a 'More' section if needed */
+        padding-top: 0;
+        border-top: none;
+        margin-left: auto;
     }
 
-    /* 4. Main Content Adjustments */
     .main-content {
-        padding: 1rem; /* Reduced padding */
+        padding: 1.5rem;
     }
 
     #content-area {
-        padding: 1.5rem; /* Reduced content padding */
-        border-radius: 8px; /* Slightly smaller radius */
-    }
-
-    /* 5. Transaction/Card Adjustments */
-    .transaction-description, .transaction-date {
-        margin-left: 0; /* Remove left margin for better fit */
-        display: block;
-    }
-
-    .transaction-category {
-        font-size: 1rem;
-    }
-
-    /* Chart Container Adjustment */
-    .chart-container {
-        width: 100%; /* Full width for charts */
-        height: auto;
-        max-height: 300px; /* Max height to prevent excessive size */
-    }
-
-    /* Grid Adjustments - Force 1 column on mobile */
-    .md\:grid-cols-3 {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-    .md\:grid-cols-2 {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-    .goal-stats {
-        grid-template-columns: repeat(1, 1fr);
+        padding: 1.5rem;
     }
 }
+
+/* Small Mobile (<= 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 0;
+    }
+
+    .container {
+        padding: 2rem 1.25rem;
+        width: 95%;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    .btn, button[type="submit"] {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .stat-card {
+        padding: 1rem;
+    }
+
+    .transaction-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .transaction-amount {
+        margin-left: 0;
+    }
+}
+
